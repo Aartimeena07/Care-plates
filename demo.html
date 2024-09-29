@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Donation Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 20px;
+    }
+    #tracker {
+      background-color: #fff;
+      border: 2px solid #28a745;
+      border-radius: 10px;
+      display: inline-block;
+      padding: 20px;
+      width: 350px;
+    }
+    h2 {
+      color: #28a745;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #resetButton {
+      background-color: #dc3545;
+      margin-top: 10px;
+    }
+    #resetButton:hover {
+      background-color: #c82333;
+    }
+    #totalDonations {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #28a745;
+    }
+    #progressBar {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+    #progressBar div {
+      height: 20px;
+      background-color: #28a745;
+      width: 0;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Food Donation Tracker</h2>
+
+  <div id="tracker">
+    <h4>Set Donation Goal (kg):</h4>
+    <input type="number" id="goalInput" placeholder="Set your donation goal">
+    <button onclick="setGoal()" id="setGoalButton">Set Goal</button>
+    
+    <h4>Enter Donation Amount (kg):</h4>
+    <input type="number" id="donationAmount" placeholder="Enter amount in kg" disabled>
+    <button onclick="addDonation()" id="addDonationButton" disabled>Add Donation</button>
+
+    <div id="totalDonations">
+      Total Donations: <span id="total">0</span> kg
+    </div>
+    
+    <div id="goal">
+      Goal: <span id="donationGoal">Not set</span> kg
+    </div>
+
+    <div id="percentageCompleted">
+      Progress: <span id="percent">0</span>%
+    </div>
+
+    <div id="progressBar">
+      <div id="progress"></div>
+    </div>
+
+    <button id="resetButton" onclick="resetGoal()" style="display: none;">Reset Goal</button>
+  </div>
+
+  <script>
+    let totalDonation = 0;
+    let donationGoal = 0; // Initial goal is set to 0, and will be updated
+
+    function setGoal() {
+      const goalInput = document.getElementById('goalInput').value;
+      donationGoal = parseFloat(goalInput);
+
+      if (isNaN(donationGoal) || donationGoal <= 0) {
+        alert("Please enter a valid goal.");
+        return;
+      }
+
+      // Set the goal and enable the donation input and button
+      document.getElementById('donationGoal').textContent = donationGoal.toFixed(2);
+      document.getElementById('donationAmount').disabled = false;
+      document.getElementById('addDonationButton').disabled = false;
+
+      // Disable the set goal button and show the reset goal button
+      document.getElementById('setGoalButton').disabled = true;
+      document.getElementById('resetButton').style.display = 'inline-block';
+    }
+
+    function addDonation() {
+      const donationInput = document.getElementById('donationAmount');
+      const donationAmount = parseFloat(donationInput.value);
+
+      if (isNaN(donationAmount) || donationAmount <= 0) {
+        alert("Please enter a valid donation amount.");
+        return;
+      }
+
+      totalDonation += donationAmount;
+
+      // Update total donations
+      document.getElementById('total').textContent = totalDonation.toFixed(2);
+
+      // Calculate percentage completed
+      const percentageCompleted = (totalDonation / donationGoal) * 100;
+      document.getElementById('percent').textContent = percentageCompleted.toFixed(2);
+
+      // Update progress bar
+      const progressBar = document.getElementById('progress');
+      progressBar.style.width = Math.min(percentageCompleted, 100) + "%";
+
+      donationInput.value = '';  // Clear input field
+    }
+
+    function resetGoal() {
+      // Reset everything to initial state
+      totalDonation = 0;
+      donationGoal = 0;
+
+      document.getElementById('total').textContent = '0';
+      document.getElementById('donationGoal').textContent = 'Not set';
+      document.getElementById('percent').textContent = '0';
+      document.getElementById('progress').style.width = '0%';
+
+      document.getElementById('donationAmount').disabled = true;
+      document.getElementById('addDonationButton').disabled = true;
+      document.getElementById('setGoalButton').disabled = false;
+      document.getElementById('goalInput').value = '';
+
+      // Hide reset button
+      document.getElementById('resetButton').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ 
+.donation{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 80px;
+}
+ 
+.profile{
+    margin-top: 30px;
+    margin-left: 30px;
+    height: 600px;
+    width: 600px;
+    background: linear-gradient(to top, #FF9A8B, #FF6A88, #FFB199);
+    background-size: cover;
+    border: 2px solid black;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+.profile-pic{
+
+      height: 90px;
+      width: 90px;
+      background-image: url(Profile\ User\ free\ icons\ designed\ by\ Freepik.jpg);
+      background-size: contain;
+      border-radius: 50px;
+      margin-left: 20px;
+}
+.profile-pic p {
+    margin-left: 110px;
+ 
+    width: 200px;
+    font-size: larger;
+}
+.name{
+    margin-top: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+}
+.info{
+display: flex;
+flex-direction: column;
+text-align: center;
+    height: 300px;
+    width: 300px;
+    background: linear-gradient(to right, #FF6B6B, #FFB199, #FFF6D5);
+
+    margin-top: 80px;
+    color: white;
+    font-size: larger;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    border-radius: 50px;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+        border: 2px solid black; /* Border width, style, and color */
+      
+}
+.info a {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    
+}
