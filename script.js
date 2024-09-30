@@ -1,4 +1,4 @@
- // Floating buttons slight movement based on scroll
+ 
 window.addEventListener('scroll', function() {
     const donateButton = document.querySelector('.floating-donate');
     const volunteerButton = document.querySelector('.floating-volunteer');

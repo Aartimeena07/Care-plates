@@ -1,4 +1,4 @@
-/* General Styles */
+ 
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@
     color: #222;
   }
   
-  /* Floating Buttons */
+   
   .floating-btn {
     position: fixed;
     bottom: 30px;
@@ -50,7 +50,7 @@
     background-color: #ff5c5c;
   }
   
-  /* Navbar */
+ 
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -82,7 +82,7 @@
     color: #e63946;
   }
   
-  /* Hero Section */
+   
   .hero-section {
     height: 100vh;
     background-image: url(Be\ the\ Reason\ Someone\ Eats\ Today..png);
@@ -132,8 +132,7 @@
     width: 600px;
     margin-left: 300px;
   }
-  
-  /* Sections */
+   
   .section {
     padding: 60px 0;
     
@@ -212,7 +211,7 @@
     background-color: #be5441;
   }
   
-  /* Footer */
+ 
   footer {
     background-color: #2b2d42;
     color: white;
@@ -235,4 +234,5 @@
   .social-links a:hover {
     color: #e63946;
   }
+  
   
